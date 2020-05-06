@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% block content %}
+<div class="postformpage">
+  <div class="container">
+    <h1>Post!</h1>
+    <div class="postform">
+    <form method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      {% bootstrap_form form %}
+      <input class='btn btn-primary' type="submit" name="" value="Post">
+    </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

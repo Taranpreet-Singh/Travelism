@@ -1,0 +1,30 @@
+.ss{
+  margin-left: 15px;
+}
+
+.gallery{
+
+   margin: 10px 50px;
+}
+
+.gallery p{
+  display: inline-block;
+}
+
+.gallery img{
+  margin: 10px;
+  border-radius: 10px;
+  border: 1px solid white;
+  transition: 0.2s;
+  padding: 1px;
+  width: 200px;
+}
+
+.gallery img:hover{
+  transform: scale(1.2);
+}
+
+body{
+    background-color: black;
+  color: white;
+}

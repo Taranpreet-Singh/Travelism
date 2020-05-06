@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Travelism</title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <!-- local css -->
+    <link rel="stylesheet" href="{% static '/css/master.css' %}">
+    {% block extra_css %}{%endblock%}
+
+  </head>
+  <body>
+
+    <nav class='navbar sticky-top navbar-expand-lg navbar-dark bg-dark'>
+      <ul class='navbar-nav mr-auto'>
+        <li> <img class='nav_logo' src="{% static 'images/logo.jpg' %}" alt="404" > </li>
+        <li class='navbar-brand'><a class='nav-link active nav_title' href="{% url 'home' %}">Travelism</a></li>
+      </ul>
+
+      <ul class='navbar-nav align-right'>
+
+        {% if user.is_authenticated %}
+          <li class='nav-item nav_item active'><a class='nav-link' href="{% url 'posts:create' %}">Post</a></li>
+          <li class='nav-item nav_item active'><a class='nav-link' href="{% url 'posts:post_list' %}">Gallery</a></li>
+          <li class='nav-item nav_item active'><a class='nav-link' href="{% url 'accounts:logout' %}">Logout</a></li>
+        {% else %}
+          <li class='nav-item nav_item active'><a class='nav-link' href="{% url 'posts:post_list' %}">Gallery</a></li>
+          <li class='nav-item nav_item active'><a class='nav-link' href="{% url 'accounts:login' %}">Login</a></li>
+        {% endif %}
+
+      </ul>
+    </nav>
+
+    {% block content %}     {% endblock %}
+
+
+  </body>
+</html>

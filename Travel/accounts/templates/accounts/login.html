@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% block content %}
+  <div class="loginpage">
+    <div class="container">
+    <h1>Log In!!</h1>
+    <div class="login_content">
+      <form method="post">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        <input class='login_button' type="submit" value="Log In"><br><br>
+        <p ><span class='login_signup'>Don't have an account?  </span><strong><a class='link' href="{% url 'accounts:signup' %}">SignUp</a></strong></p>
+      </form>
+    </div>
+    </div>
+  </div>
+
+
+{% endblock %}

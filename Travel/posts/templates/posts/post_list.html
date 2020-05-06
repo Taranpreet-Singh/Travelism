@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static 'css/images.css' %}">
+{% endblock %}
+{% block content %}
+  <h3 class='ss'><strong>Gallery!</strong></h3>
+  <div class="gallery">
+        {% if posts %}
+          {% for post in posts %}
+            <p>
+              <span class='ss'>Location: {{post.location}}</span><br>
+              <img class='postimage' src="{{ post.image.url }}" alt="404"><br>
+              <span class='ss'>Caption: {{post.caption}}</span>
+            </p>
+          {%endfor%}
+        {% else %}
+            <h4>No Posts!</h4>
+        {% endif %}
+  </div>
+
+
+
+
+    </div>
+  </div>
+{% endblock %}

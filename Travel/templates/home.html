@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="home">
+    <div class="maincontent">
+      <h1 class='mainheading'>Welcome to Travelism</h1><br>
+      <h2 class='subheading'>Enjoy the journey of Life</h2><br>
+      {% if not user.is_authenticated %}
+        <a class='btn btn-danger' href="{% url 'accounts:signup' %}">Sign Up</a>
+      {% endif %}
+      <a class='btn btn-primary' id='explore' href="{% url 'posts:post_list' %}">Explore</a>
+    </div>
+  </div>
+
+{% endblock %}
